@@ -31,12 +31,17 @@ export const Local = styled.div`
   }
 `;
 
-export const ShoppingCartContainer = styled.div`
+export const ShoppingCartContainer = styled.button`
   width: 38px;
   height: 38px;
   background-color: ${(props) => props.theme["yellow-100"]};
+  border:none;
   border-radius: 6px;
   padding: 8px;
+  
+  &:hover{
+    background-color: ${(props) => props.theme["yellow-300"]};
+  }
 `;
 
 export const CustomMapPin = styled(MapPin)`

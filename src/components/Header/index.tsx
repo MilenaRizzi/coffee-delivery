@@ -9,7 +9,7 @@ export function Header() {
           <CustomMapPin size={22} weight="fill"/>
           <p>Porto Alegre, RS</p>
         </Local>
-        <ShoppingCartContainer>
+        <ShoppingCartContainer type="button">
           <CustomShoppingCart size={22} weight="fill" />
         </ShoppingCartContainer>
       </nav>
