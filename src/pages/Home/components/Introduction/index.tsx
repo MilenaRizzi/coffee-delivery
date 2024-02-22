@@ -9,18 +9,6 @@ import {
   InfosContainer,
   IntroductionContainer,
   Title,
-  // Vector1,
-  // Vector10,
-  // Vector11,
-  // Vector2,
-  // Vector3,
-  // Vector4,
-  // Vector5,
-  // Vector6,
-  // Vector7,
-  // Vector8,
-  // Vector9,
-  // Vectors,
 } from "./styles";
 
 export function Introduction() {

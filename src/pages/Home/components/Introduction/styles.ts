@@ -81,4 +81,3 @@ export const Infos = styled.div`
   gap: 0.75rem;
   margin-bottom: 1.25rem;
 `;
-
