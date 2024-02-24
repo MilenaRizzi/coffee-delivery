@@ -1,4 +1,4 @@
-import { Minus, Plus, ShoppingCartSimple } from "@phosphor-icons/react";
+import { ShoppingCartSimple } from "@phosphor-icons/react";
 import {
   Button,
   Buy,
@@ -8,36 +8,41 @@ import {
   Price,
   TypeCoffe,
 } from "./styles";
+import { QuantityCoffee } from "../../../../components/QuantityCoffee";
 
-interface CoffeeCardProps{
-  enderecoImagem: string
-  typeCoffe: string
-  nameCoffe: string
-  descricaoCoffe: string
+type Props = {
+  coffee: {
+    id: string
+    title: string
+    description: string
+    tags: string[]
+    price: number
+    image: string
+  }
 }
-
-export function CoffeeCard( { enderecoImagem, typeCoffe, nameCoffe, descricaoCoffe } : CoffeeCardProps) {
+export function CoffeeCard({ coffee }: Props) {
   return (
     <CoffeeCardContainer>
-      <img src={enderecoImagem} alt="" />
+      <img src={coffee.image} alt="" />
+
       <TypeCoffe>
-        <p>{typeCoffe}</p>
+        {coffee.tags.map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
       </TypeCoffe>
       <Infos>
-        <h1>{nameCoffe}</h1>
-        <p>{descricaoCoffe}</p>
+        <h1>{coffee.title}</h1>
+        <p>{coffee.description}</p>
       </Infos>
       <Buy>
         <Price>
           <span>R$</span>9,90
         </Price>
         <Counter>
-          <Minus size={14} color="#8047f8" />
-          <p>1</p>
-          <Plus size={14} color="#8047f8" />
+          <QuantityCoffee />
         </Counter>
         <Button>
-        <ShoppingCartSimple size={22} color="#ffffff" weight="fill" />
+          <ShoppingCartSimple size={22} color="#ffffff" weight="fill" />
         </Button>
       </Buy>
     </CoffeeCardContainer>

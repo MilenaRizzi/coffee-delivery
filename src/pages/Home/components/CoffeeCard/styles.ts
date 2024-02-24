@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CoffeeCardContainer = styled.div`
   width: 256px;
-  height: 312px;
+  height: 332px;
   padding: 0 24px;
   background-color: ${(props) => props.theme["gray-100"]};
   font-family: "Roboto", sans-serif;
@@ -18,16 +18,20 @@ export const CoffeeCardContainer = styled.div`
 `;
 
 export const TypeCoffe = styled.div`
-  width: 81px;
-  margin: auto;
-  height: 21px;
-  background-color: ${(props) => props.theme["yellow-100"]};
-  border-radius: 20px;
-  p {
-    font-size: 10px;
-    color: ${(props) => props.theme["yellow-500"]};
-    font-weight: bold;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  gap: 4px;
+
+  span {
     padding: 4px 8px;
+    border-radius: 100px;
+    background-color: ${(props) => props.theme["yellow-100"]};
+    color: ${(props) => props.theme["yellow-500"]};
+    text-transform: uppercase;
+    font-size: 10px;
   }
 `;
 
@@ -50,21 +54,19 @@ export const Buy = styled.div`
   align-items: center;
   margin-top: 33px;
   padding-bottom: 20px;
- 
 `;
 
 export const Price = styled.div`
+  font-size: 24px;
+  margin-right: 23px;
+  font-weight: bold;
+  font-family: "Baloo 2", sans-serif;
 
-    font-size: 24px;
-    margin-right: 23px;
-    font-weight: bold;
-    font-family: "Baloo 2", sans-serif;
-
-    span {
-      font-size: 14px;
-      font-weight: normal;
-    }
-`
+  span {
+    font-size: 14px;
+    font-weight: normal;
+  }
+`;
 
 export const CartBase = styled.div`
   display: flex;
@@ -72,20 +74,7 @@ export const CartBase = styled.div`
 `;
 
 export const Counter = styled(CartBase)`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 72px;
-  height: 38px;
-  padding: 8px;
-  background-color: ${(props) => props.theme["gray-300"]};
-  margin-right: 8px;
 
-  p {
-    font-weight: normal;
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-  }
 `;
 
 export const Button = styled(CartBase)`
