@@ -7,7 +7,8 @@ export const CoffeeCardContainer = styled.div`
   background-color: ${(props) => props.theme["gray-100"]};
   font-family: "Roboto", sans-serif;
   text-align: center;
-  border-radius: 0 20px 0 20px;
+  border-radius: 6px 36px;
+
 
   img {
     margin-bottom: 12px;
@@ -71,10 +72,6 @@ export const Price = styled.div`
 export const CartBase = styled.div`
   display: flex;
   border-radius: 6px;
-`;
-
-export const Counter = styled(CartBase)`
-
 `;
 
 export const Button = styled(CartBase)`

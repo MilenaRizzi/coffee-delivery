@@ -27,7 +27,7 @@ export const HeroContent = styled.div`
   justify-content: space-between;
 
   img#coffe{
-    z-index: 1; /* Add this line to set the z-index */
+    z-index: 1;
   }
 `
 export const Title = styled.div`
@@ -54,22 +54,6 @@ export const IconBase = styled.div`
   border-radius: 100%;
 `;
 
-export const IconCart = styled(IconBase)`
-  background-color: ${(props) => props.theme["yellow-500"]};
-`;
-
-export const IconTimer = styled(IconBase)`
-  background-color: ${(props) => props.theme["yellow-300"]};
-`;
-
-export const IconPackage = styled(IconBase)`
-  background-color: ${(props) => props.theme["purple-500"]};
-`;
-
-export const IconCoffe = styled(IconBase)`
-  background-color: ${(props) => props.theme["purple-300"]};
-`;
-
 export const InfosContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -80,4 +64,9 @@ export const Infos = styled.div`
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1.25rem;
+
+  > svg {
+      padding: 8px;
+      border-radius: 999px;
+    }
 `;

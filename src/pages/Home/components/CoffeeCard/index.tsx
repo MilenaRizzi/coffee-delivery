@@ -3,7 +3,6 @@ import {
   Button,
   Buy,
   CoffeeCardContainer,
-  Counter,
   Infos,
   Price,
   TypeCoffe,
@@ -38,9 +37,9 @@ export function CoffeeCard({ coffee }: Props) {
         <Price>
           <span>R$</span>9,90
         </Price>
-        <Counter>
+        <div>
           <QuantityCoffee />
-        </Counter>
+        </div>
         <Button>
           <ShoppingCartSimple size={22} color="#ffffff" weight="fill" />
         </Button>
