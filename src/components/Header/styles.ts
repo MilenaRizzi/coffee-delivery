@@ -35,12 +35,19 @@ export const ShoppingCartContainer = styled.button`
   width: 38px;
   height: 38px;
   background-color: ${(props) => props.theme["yellow-100"]};
-  border:none;
+  border: none;
   border-radius: 6px;
   padding: 8px;
-  
-  &:hover{
+
+  &:hover {
     background-color: ${(props) => props.theme["yellow-300"]};
+  }
+
+  span {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 18px;
+    color: green;
   }
 `;
 
