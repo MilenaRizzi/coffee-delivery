@@ -9,25 +9,59 @@ import {
 import {
   Address,
   CartContainer,
-  DetailsCoffee,
   FullAddress,
   Header,
-  InfoCoffee,
-  PaymentMethods,
+  PaymentContainer,
   PaymentOptions,
+  PaymentTypeItem,
   RemoveButton,
   SelectedCoffees,
   Total,
 } from "./styles";
 import { QuantityCoffee } from "../../components/QuantityCoffee";
-import { coffees } from "../../../data.json";
+// import { coffees } from "../../../data.json";
+import { Controller, useForm } from "react-hook-form";
+import { NavLink } from "react-router-dom";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as zod from "zod";
+import { useContext, useState } from "react";
+import { CartContext } from "../../contexts/CartContext";
+
+const newAddressFormSchema = zod.object({
+  cep: zod.number().min(8, "Digite um CEP válido"),
+  street: zod.string().min(1, "Informe o nome da Rua"),
+  residenceNumber: zod.number().min(1, "Infome o número da residência"),
+  fullAddress: zod.string().min(1, "Informe um complemento"),
+  neighborhood: zod.string().min(1, "Infome o bairro"),
+  city: zod.string().min(1, "Informe a cidade"),
+  state: zod.string().min(1, "Infome o Estado"),
+  paymentMethod: zod.enum(["credit", "debit", "cash"]),
+});
+
+export type NewAddressFormData = zod.infer<typeof newAddressFormSchema>;
+
 export function Cart() {
+  const [formData, setFormData] = useState<NewAddressFormData | null>(null);
+  const { control, register, handleSubmit } = useForm<NewAddressFormData>({
+    resolver: zodResolver(newAddressFormSchema),
+  });
+  // const [cart] = useState<Props[]>([]);
+
+  const { quantity, quantityDecrement, quantityIncrement  } =
+    useContext(CartContext);
+
+  function handleAddNewAddress(data: NewAddressFormData) {
+    setFormData(data);
+
+    console.log(formData)
+  }
+
   return (
     <CartContainer>
       <div>
         <h1>Complete seu pedido</h1>
 
-        <form action="">
+        <form id="order" onSubmit={handleSubmit(handleAddNewAddress)}>
           <Address>
             <Header>
               <MapPinLine size={22} color="#c47f17" />
@@ -36,30 +70,50 @@ export function Cart() {
                 <p>Informe o endereço onde deseja receber seu pedido</p>
               </div>
             </Header>
-            <input type="number" id="CEP" placeholder="CEP" />
+            <input
+              type="number"
+              id="CEP"
+              placeholder="CEP"
+              {...register("cep", { valueAsNumber: true })}
+            />
             <input type="text" name="" id="street" placeholder="Rua" />
             <FullAddress>
-              <input type="text" name="" id="number" placeholder="Número" />
               <input
                 type="text"
-                name=""
+                id="residenceNumber"
+                placeholder="Número"
+                {...(register("residenceNumber"), { valueAsNumber: true })}
+              />
+              <input
+                type="text"
                 id="fullAddress"
                 placeholder="Complemento"
+                {...register("fullAddress")}
               />
               <span>Optional</span>
             </FullAddress>
             <div>
               <input
                 type="text"
-                name=""
                 id="neighborhood"
                 placeholder="Bairro"
+                {...register("neighborhood")}
               />
-              <input type="text" name="" id="city" placeholder="Cidade" />
-              <input type="text" name="" id="state" placeholder="UF" />
+              <input
+                type="text"
+                id="city"
+                placeholder="Cidade"
+                {...register("city")}
+              />
+              <input
+                type="text"
+                id="state"
+                placeholder="UF"
+                {...register("state")}
+              />
             </div>
           </Address>
-          <PaymentMethods>
+          <PaymentContainer>
             <Header>
               <CurrencyDollar size={22} color="#8047f8" />
               <div>
@@ -70,63 +124,73 @@ export function Cart() {
                 </p>
               </div>
             </Header>
-            <PaymentOptions>
-              <input type="radio" id="opcao1" name="opcao" />
-              <label htmlFor="opcao1">
-                <CreditCard size={16} color="#8047f8" />
-                Cartão de Crédito
-              </label>
-              <input type="radio" id="opcao2" name="opcao" />
-              <label htmlFor="opcao2">
-                <Bank size={16} color="#8047f8" />
-                Cartão de Débito
-              </label>
-              <input type="radio" id="opcao3" name="opcao" />
-              <label htmlFor="opcao3">
-                <Money size={16} color="#8047f8" />
-                Dinheiro
-              </label>
-            </PaymentOptions>
-          </PaymentMethods>
+            <Controller
+              control={control}
+              name="paymentMethod"
+              render={({ field }) => {
+                return (
+                  <PaymentOptions onValueChange={field.onChange}>
+                    <PaymentTypeItem value="credit">
+                      <CreditCard size={16} color="#8047f8" />
+                      Cartão de Crédito
+                    </PaymentTypeItem>
+                    <PaymentTypeItem value="debit">
+                      <Bank size={16} color="#8047f8" />
+                      Cartão de Débito
+                    </PaymentTypeItem>
+                    <PaymentTypeItem value="cash">
+                      <Money size={16} color="#8047f8" />
+                      Dinheiro
+                    </PaymentTypeItem>
+                  </PaymentOptions>
+                );
+              }}
+            />
+          </PaymentContainer>
         </form>
       </div>
 
       <div>
+        
         <h1>Cafés selecionados</h1>
         <SelectedCoffees>
-          <InfoCoffee>
-            <div>
-              <img src={coffees[0].image} alt="" />
-              <DetailsCoffee>
-                <h1>Expresso Tradicional</h1>
-                <div>
-                  <QuantityCoffee />
-                  <RemoveButton>
-                    <Trash size={16} color="#8047f8" />
-                    Remover
-                  </RemoveButton>
-                </div>
-              </DetailsCoffee>
-            </div>
-            <strong>R$ 9,90</strong>
-          </InfoCoffee>
-          <hr />
-          <InfoCoffee>
-            <div>
-              <img src={coffees[5].image} alt="" />
-              <DetailsCoffee>
-                <h1>Latte</h1>
-                <div>
-                  <QuantityCoffee />
-                  <RemoveButton>
-                    <Trash size={16} color="#8047f8" />
-                    Remover
-                  </RemoveButton>
-                </div>
-              </DetailsCoffee>
-            </div>
-            <strong>R$ 19,80</strong>
-          </InfoCoffee>
+          {/* {coffeesInCart.map((coffee) => (
+            <InfoCoffee key={coffee.id}>
+              <div>
+                <img src={coffee.image} alt="" />
+                <DetailsCoffee>
+                  <h1>{coffee.title}</h1>
+                  <div>
+                    <QuantityCoffee
+                      quantity={quantity}
+                      quantityIncrement={quantityIncrement}
+                      quantityDecrement={quantityDecrement}
+                    />
+                    <RemoveButton>
+                      <Trash size={16} color="#8047f8" />
+                      Remover
+                    </RemoveButton>
+                  </div>
+                </DetailsCoffee>
+              </div>
+              <strong>R$ 9,90</strong>
+            </InfoCoffee>
+          ))} */}
+
+          {/* {coffeeSelect.map((coffee) => (
+          
+          ))} */}
+          <div>
+                    <QuantityCoffee
+                      quantity={quantity}
+                      quantityIncrement={quantityIncrement}
+                      quantityDecrement={quantityDecrement}
+                    />
+                    <RemoveButton>
+                      <Trash size={16} color="#8047f8" />
+                      Remover
+                    </RemoveButton>
+                  </div>
           <hr />
           <Total>
             <strong>
@@ -140,9 +204,15 @@ export function Cart() {
             <h1>
               Total <span>R$ 33,20</span>
             </h1>
-            <button>Confirmar Pedido</button>
+
+            <NavLink to="/success" title="Sucesso">
+              <button type="submit" form="order">
+                Confirmar Pedido
+              </button>
+            </NavLink>
           </Total>
         </SelectedCoffees>
+
       </div>
     </CartContainer>
   );
