@@ -19,6 +19,11 @@ export const Container = styled.div`
   button {
     border: 0;
     background: transparent;
+    cursor: pointer;
 
+    &:hover{
+      color: ${(props) => props.theme["purple-500"]};
+
+    }
   }
 `
