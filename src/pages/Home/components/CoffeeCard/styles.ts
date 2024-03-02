@@ -9,7 +9,6 @@ export const CoffeeCardContainer = styled.div`
   text-align: center;
   border-radius: 6px 36px;
 
-
   img {
     margin-bottom: 12px;
     width: 120px;
@@ -55,6 +54,21 @@ export const Buy = styled.div`
   align-items: center;
   margin-top: 33px;
   padding-bottom: 20px;
+
+  > button {
+    display: flex;
+    border-radius: 6px;
+    width: 38px;
+    height: 38px;
+    background-color: ${(props) => props.theme["purple-500"]};
+    padding: 8px;
+    cursor: pointer;
+    border: transparent;
+
+    &:hover {
+      background-color: ${(props) => props.theme["purple-300"]};
+    }
+  }
 `;
 
 export const Price = styled.div`
@@ -66,22 +80,5 @@ export const Price = styled.div`
   span {
     font-size: 14px;
     font-weight: normal;
-  }
-`;
-
-export const CartBase = styled.div`
-  display: flex;
-  border-radius: 6px;
-`;
-
-export const Button = styled(CartBase)`
-  width: 38px;
-  height: 38px;
-  background-color: ${(props) => props.theme["purple-500"]};
-  padding: 8px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${(props) => props.theme["purple-300"]};
   }
 `;

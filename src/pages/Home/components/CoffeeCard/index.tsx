@@ -1,6 +1,5 @@
 import { ShoppingCartSimple } from "@phosphor-icons/react";
 import {
-  Button,
   Buy,
   CoffeeCardContainer,
   Infos,
@@ -8,18 +7,29 @@ import {
   TypeCoffe,
 } from "./styles";
 import { QuantityCoffee } from "../../../../components/QuantityCoffee";
+import { useContext } from "react";
+import { CartContext } from "../../../../contexts/CartContext";
 
 type Props = {
   coffee: {
-    id: string
-    title: string
-    description: string
-    tags: string[]
-    price: number
-    image: string
+    id: string;
+    title: string;
+    description: string;
+    tags: string[];
+    price: number;
+    image: string;
+  };
+};
+
+export function CoffeeCard( { coffee }: Props) {
+ 
+  const { quantity , quantityDecrement, quantityIncrement, addItem} = useContext(CartContext)
+
+ 
+  function handleAddItem() {
+    addItem({ id: coffee.id, quantity })
   }
-}
-export function CoffeeCard({ coffee }: Props) {
+  
   return (
     <CoffeeCardContainer>
       <img src={coffee.image} alt="" />
@@ -38,11 +48,15 @@ export function CoffeeCard({ coffee }: Props) {
           <span>R$</span>9,90
         </Price>
         <div>
-          <QuantityCoffee />
+          <QuantityCoffee
+            quantity={quantity}
+            quantityIncrement={quantityIncrement}
+            quantityDecrement={quantityDecrement}
+          />
         </div>
-        <Button>
-          <ShoppingCartSimple size={22} color="#ffffff" weight="fill" />
-        </Button>
+          <button type="submit" onClick={handleAddItem}>
+            <ShoppingCartSimple size={22} color="#ffffff" weight="fill" />
+          </button>
       </Buy>
     </CoffeeCardContainer>
   );
