@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import * as RadioGroup from "@radix-ui/react-radio-group";
 
 export const CartContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 32px;
   background: ${(props) => props.theme["gray-50"]};
-
+  min-width: 1150px;
   font-family: "Roboto", sans-serif;
   height: 100vh;
 
@@ -33,7 +34,6 @@ export const Address = styled.section`
     background: ${(props) => props.theme["gray-300"]};
     font-family: "Roboto", sans-serif;
     color: ${(props) => props.theme["gray-600"]};
-
   }
 
   #CEP,
@@ -47,10 +47,8 @@ export const Address = styled.section`
   }
 
   #fullAddress {
-    width: 348px;
+    width: 372px;
     margin-left: 12px;
-  }
-  #fullAddress::placeholder {
   }
 
   #city {
@@ -83,6 +81,7 @@ export const Header = styled.header`
 `;
 
 export const FullAddress = styled.div`
+
   span {
     margin-left: -70px;
     font-style: italic;
@@ -90,7 +89,7 @@ export const FullAddress = styled.div`
   }
 `;
 
-export const PaymentMethods = styled.section`
+export const PaymentContainer = styled.section`
   width: 640px;
   height: 207px;
   padding: 40px;
@@ -98,40 +97,35 @@ export const PaymentMethods = styled.section`
   background: ${(props) => props.theme["gray-100"]};
 `;
 
-export const PaymentOptions = styled.div`
+export const PaymentOptions = styled(RadioGroup.Root)`
   display: flex;
   gap: 12px;
   margin-top: 32px;
+`;
 
-  input[type="radio"] {
-    display: none;
+export const PaymentTypeItem = styled(RadioGroup.Item)`
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  gap: 8px;
+  padding: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: ${(props) => props.theme["gray-600"]};
+  background: ${(props) => props.theme["gray-300"]};
+  border: transparent;
+  width: 178px;
+  font-family: "Roboto", sans-serif;
+
+
+  &:hover {
+    background: ${(props) => props.theme["gray-400"]};
   }
 
-
-  label {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 12px;
-    padding: 16px;
-    cursor: pointer;
-    width: 178px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    color: ${(props) => props.theme["gray-600"]};
-    background:${(props) => props.theme["gray-300"]};
-
-
-    &:hover {
-    background:${(props) => props.theme["gray-400"]};
-    }
-
-  }
-
-  /* Estilizando o rótulo quando o botão de rádio está marcado */
-  input[type="radio"]:checked + label {
+  &[data-state="checked"] {
     background: ${(props) => props.theme["purple-100"]};
-    border: 1px solid ${(props) => props.theme["purple-200"]};
+    border: 1px solid ${(props) => props.theme["purple-300"]};
   }
 `;
 
@@ -225,6 +219,7 @@ export const Total = styled.div`
     padding: 12px 8px;
     font-size: 14px;
     border: 0;
+    width: 100%;
     border-radius: 6px;
     text-transform: uppercase;
     color: ${(props) => props.theme.white};

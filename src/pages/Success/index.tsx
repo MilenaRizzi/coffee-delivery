@@ -2,8 +2,16 @@ import { CurrencyDollar, MapPin, Timer } from "@phosphor-icons/react";
 import { Info, InfoContent, Element, SuccessContainer } from "./styles";
 import { useTheme } from 'styled-components'
 
+// interface CartProps {
+//   street: string,
+//   residenceNumber: number,
+//   neighborhood: string,
+//   city: string,
+//   paymentMethod: 'credit' | 'debit' | 'cash',
+
+// }
 export function Success() {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <SuccessContainer>
