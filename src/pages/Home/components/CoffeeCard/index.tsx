@@ -7,7 +7,7 @@ import {
   TypeCoffe,
 } from "./styles";
 import { QuantityCoffee } from "../../../../components/QuantityCoffee";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../../../contexts/CartContext";
 
 type Props = {
@@ -23,11 +23,25 @@ type Props = {
 
 export function CoffeeCard( { coffee }: Props) {
  
-  const { quantity , quantityDecrement, quantityIncrement, addItem} = useContext(CartContext)
+  const [quantity, setQuantity] = useState(1);
+
+  const { addItem } = useContext(CartContext)
+
+  function incrementQuantity() {
+    setQuantity((state) => state + 1)
+  }
+
+  function decrementQuantity() {
+    if (quantity > 1) {
+      setQuantity((state) => state - 1)
+    }
+  }
 
  
   function handleAddItem() {
     addItem({ id: coffee.id, quantity })
+    setQuantity(1)
+
   }
   
   return (
@@ -50,11 +64,11 @@ export function CoffeeCard( { coffee }: Props) {
         <div>
           <QuantityCoffee
             quantity={quantity}
-            quantityIncrement={quantityIncrement}
-            quantityDecrement={quantityDecrement}
+            decrementQuantity={decrementQuantity}
+            incrementQuantity={incrementQuantity}
           />
         </div>
-          <button type="submit" onClick={handleAddItem}>
+          <button onClick={handleAddItem}>
             <ShoppingCartSimple size={22} color="#ffffff" weight="fill" />
           </button>
       </Buy>
