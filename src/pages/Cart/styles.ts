@@ -81,7 +81,6 @@ export const Header = styled.header`
 `;
 
 export const FullAddress = styled.div`
-
   span {
     margin-left: -70px;
     font-style: italic;
@@ -118,7 +117,6 @@ export const PaymentTypeItem = styled(RadioGroup.Item)`
   width: 178px;
   font-family: "Roboto", sans-serif;
 
-
   &:hover {
     background: ${(props) => props.theme["gray-400"]};
   }
@@ -134,7 +132,6 @@ export const SelectedCoffees = styled.section`
   flex-direction: column;
   gap: 12px;
   width: 448px;
-  height: 498px;
   padding: 40px;
   background: ${(props) => props.theme["gray-100"]};
   border-radius: 0 30px 0 30px;
@@ -149,14 +146,19 @@ export const SelectedCoffees = styled.section`
 export const InfoCoffee = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   padding: 4px 8px;
 
   div {
     display: flex;
-
+   
     img {
       margin-right: 20px;
       width: 64px;
+    }
+
+    strong {
+      margin-left: 30px;
     }
   }
 `;
@@ -175,6 +177,7 @@ export const DetailsCoffee = styled.div`
     display: flex;
     align-items: center;
     height: 32px;
+    border-radius: 6px;
   }
 `;
 
@@ -186,8 +189,13 @@ export const RemoveButton = styled.button`
   gap: 4px;
   padding: 0 8px;
   border: none;
+  border-radius: 6px;
   font-size: 12px;
   background: ${(props) => props.theme["gray-300"]};
+
+  &:hover {
+    background: ${(props) => props.theme["gray-400"]};
+  }
 `;
 
 export const Total = styled.div`
@@ -196,14 +204,17 @@ export const Total = styled.div`
   gap: 12px;
   font-family: "Roboto", sans-serif;
 
-  strong {
+  div {
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
-    color: ${(props) => props.theme["gray-600"]};
 
-    span {
+    span:first-child {
+      font-size: 14px;
+    }
+    span:nth-child(2) {
       font-size: 16px;
+      color: ${(props) => props.theme["gray-600"]};
+      font-weight: bold;
     }
   }
 
@@ -213,6 +224,7 @@ export const Total = styled.div`
     font-family: "Roboto", sans-serif;
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
   }
 
   button {
