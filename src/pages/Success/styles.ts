@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const SuccessContainer = styled.div` 
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   padding: 40px 160px 32px;
   font-family: "Roboto", sans-serif;
-
+  height: 100vh;
+  
+  div {
+    margin: auto 0;
+  }
+  
   h1 {
     font-family: "Baloo 2", sans-serif;
     color: ${(props) => props.theme["yellow-500"]};
@@ -22,10 +24,11 @@ export const SuccessContainer = styled.div`
 export const Info = styled.div`
   border: 1px solid;
   border-radius: 6px 36px;
-  width: 100%;
 
   border-color: transparent;
   background-origin: border-box;
+  width: 520px;
+
   background-image: ${({ theme }) =>
     `linear-gradient(to bottom right, ${theme["yellow-300"]}, ${theme["purple-500"]})`};
 `

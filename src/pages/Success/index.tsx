@@ -1,17 +1,24 @@
 import { CurrencyDollar, MapPin, Timer } from "@phosphor-icons/react";
 import { Info, InfoContent, Element, SuccessContainer } from "./styles";
 import { useTheme } from 'styled-components'
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
+import { useParams } from "react-router-dom";
 
-// interface CartProps {
-//   street: string,
-//   residenceNumber: number,
-//   neighborhood: string,
-//   city: string,
-//   paymentMethod: 'credit' | 'debit' | 'cash',
-
-// }
 export function Success() {
+  const { orders } =  useContext(CartContext)
+  const { orderId } = useParams()
+  const orderInfo = orders.find((order) => order.id === Number(orderId))
+  const paymentMethod = {
+    credit: 'Cartão de crédito',
+    debit: 'Cartão de débito',
+    cash: 'Dinheiro',
+  }
   const theme = useTheme();
+
+  if (!orderInfo?.id) {
+    return null
+  }
 
   return (
     <SuccessContainer>
@@ -25,10 +32,18 @@ export function Success() {
                 <MapPin color={theme.white}
                 style={{ backgroundColor: theme["purple-300"] }}
                 size={32} />
-                <div>
-                  <span>Entrega em Rua João Daniel Martinelle, 102</span>
-                  <span>Farrapos - Porto Alegre</span>
-                </div>
+               <div>
+                <span>
+                  Entrega em{' '}
+                  <strong>
+                    {orderInfo.street}, {orderInfo.residenceNumber}
+                  </strong>
+                </span>
+
+                <span>
+                  {orderInfo.neighborhood} - {orderInfo.city},{orderInfo.state}
+                </span>
+              </div>
               </Element>
 
               <Element>
@@ -45,10 +60,11 @@ export function Success() {
                 <CurrencyDollar color={theme.white}
                 style={{ backgroundColor: theme["yellow-500"] }}
                 size={32} />
-                <div>
-                  <span>Pagamento na entrega</span>
-                  <strong>Cartão de crédito</strong>
-                </div>
+                 <div>
+                <span>Pagamento na entrega</span>
+
+                <strong>{paymentMethod[orderInfo.paymentMethod]}</strong>
+              </div>
               </Element>
 
             </InfoContent>
