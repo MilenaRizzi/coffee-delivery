@@ -5,13 +5,50 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 2rem 10rem;
-
-  nav {
-    display: flex;
-    gap: 12px;
-  }
 `;
 
+export const Navigator = styled.nav`
+  display: flex;
+  gap: 12px;
+
+  a {
+    display: flex;
+    align-items: center;
+
+    background-color: ${(props) => props.theme["yellow-100"]};
+    color: ${(props) => props.theme["yellow-500"]};
+
+    padding: 8px;
+    border-radius: 6px;
+
+    position: relative;
+
+    &[aria-disabled="true"] {
+      pointer-events: none;
+    }
+
+    div {
+     span {
+        font-weight: bold;
+        font-family: "Roboto", sans-serif;
+        font-size: 12px;
+        color: ${(props) => props.theme.white};
+        background-color: ${(props) => props.theme["yellow-500"]};
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        transform: translate(50%, -50%);
+      }
+    }
+  }
+`;
 export const Local = styled.div`
   display: flex;
   align-items: center;
@@ -31,25 +68,6 @@ export const Local = styled.div`
   }
 `;
 
-export const ShoppingCartContainer = styled.button`
-  width: 38px;
-  height: 38px;
-  background-color: ${(props) => props.theme["yellow-100"]};
-  border: none;
-  border-radius: 6px;
-  padding: 8px;
-
-  &:hover {
-    background-color: ${(props) => props.theme["yellow-300"]};
-  }
-
-  span {
-    display: inline-block;
-    margin-left: 10px;
-    font-size: 18px;
-    color: green;
-  }
-`;
 
 export const CustomMapPin = styled(MapPin)`
   color: ${(props) => props.theme["purple-300"]};
