@@ -1,13 +1,17 @@
 import styled from "styled-components";
 
-export const SuccessContainer = styled.div` 
+export const SuccessContainer = styled.div`
+  display: flex;
+
+  #delivery {
+    padding-top: 133px;
+  }
+`
+
+export const SuccessContent = styled.div` 
   padding: 40px 160px 32px;
   font-family: "Roboto", sans-serif;
   height: 100vh;
-  
-  div {
-    margin: auto 0;
-  }
   
   h1 {
     font-family: "Baloo 2", sans-serif;
@@ -20,6 +24,8 @@ export const SuccessContainer = styled.div`
   }
 
 `
+
+
 
 export const Info = styled.div`
   border: 1px solid;
