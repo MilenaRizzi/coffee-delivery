@@ -78,7 +78,6 @@ export function CartContextProvider({ children }: CartContexProviderProps) {
     dispatch(checkoutCartAction(order, navigate));
   }
 
-  // setCartCoffees([...cartCoffees, item])
   return (
     <CartContext.Provider
       value={{
