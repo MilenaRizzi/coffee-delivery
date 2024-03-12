@@ -15,6 +15,7 @@ export function Home() {
             <CoffeeCard key={coffee.id} coffee={coffee} />
           ))}
         </div>
+
       </CoffeeList>
     </div>
   )
