@@ -9,7 +9,7 @@ Este é um aplicativo de entrega de café onde os usuários podem fazer pedidos 
 
 # Funcionalidades
 ## Página inicial (Home)
-![Coffee Delivery - Home](https://github.com/MilenaRizzi/coffee-delivery/assets/116590085/ee160d04-0e6b-4233-a084-fca2de25dd3f)
+      ![Coffee Delivery - Home](https://github.com/MilenaRizzi/coffee-delivery/assets/116590085/ee160d04-0e6b-4233-a084-fca2de25dd3f)
 A página inicial é a primeira tela que os usuários encontram ao acessar o aplicativo. Nesta página, eles serão recebidos com uma interface intuitiva e amigável, apresentando as seguintes funcionalidades:
 
 - Catálogo de Cafés: Exibição dos diversos tipos de cafés disponíveis para compra, com imagens atrativas, descrições e preços.
