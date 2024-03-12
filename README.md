@@ -16,8 +16,8 @@ A página inicial é a primeira tela que os usuários encontram ao acessar o apl
 - Botão para Adicionar quantidade: Cada itém possui um botão para o usuário gerenciar a quantidade de café a qual deseja
 - Botão de Adicionar ao Carrinho: Cada item no catálogo possui um botão de um carrinho que permite ao usuário adicionar o café desejado ao carrinho de compras.
 
-**Layout-web - Home**
 ![Coffee Delivery - Home](https://github.com/MilenaRizzi/coffee-delivery/assets/116590085/ee160d04-0e6b-4233-a084-fca2de25dd3f)
+**Layout-web - Home**
 
 
 ## Página do Carrinho de Compras
