@@ -9,7 +9,6 @@ Este é um aplicativo de entrega de café onde os usuários podem fazer pedidos 
 
 # Funcionalidades
 ## Página inicial (Home)
-![Coffee Delivery - Home](https://github.com/MilenaRizzi/coffee-delivery/assets/116590085/ee160d04-0e6b-4233-a084-fca2de25dd3f)
 
 A página inicial é a primeira tela que os usuários encontram ao acessar o aplicativo. Nesta página, eles serão recebidos com uma interface intuitiva e amigável, apresentando as seguintes funcionalidades:
 
@@ -17,9 +16,11 @@ A página inicial é a primeira tela que os usuários encontram ao acessar o apl
 - Botão para Adicionar quantidade: Cada itém possui um botão para o usuário gerenciar a quantidade de café a qual deseja
 - Botão de Adicionar ao Carrinho: Cada item no catálogo possui um botão de um carrinho que permite ao usuário adicionar o café desejado ao carrinho de compras.
 
-## Página do Carrinho de Compras
-![Coffee Delivery - Checkout Filled](https://github.com/MilenaRizzi/coffee-delivery/assets/116590085/c1a7345c-17eb-497b-98c5-1eabbcb55026)
+**Layout-web - Home**
+![Coffee Delivery - Home](https://github.com/MilenaRizzi/coffee-delivery/assets/116590085/ee160d04-0e6b-4233-a084-fca2de25dd3f)
 
+
+## Página do Carrinho de Compras
 Após adicionar cafés ao carrinho, os usuários podem acessar a página do carrinho de compras para revisar e finalizar seus pedidos. Para isso, basta clicar no botão de carrinho presente no cabeçalho da página home. Na página do carrinho de compras, eles encontrarão:
 
 - Cadastro de endereço para entrega do pedido: usuário irá adicionar o seu endereço 
@@ -27,11 +28,16 @@ Após adicionar cafés ao carrinho, os usuários podem acessar a página do carr
 - Lista de Itens no Carrinho: Exibição dos cafés selecionados, com informações detalhadas, como nome, quantidade, subtotal e botão que possibilita remover item do carrinho.
 - Total do Pedido: Exibição do valor total do pedido, incluindo taxa de entrega padrão de R$3,50.
 - Botão de Confirmação:  Um botão de confirmação que processa o pedido e direciona o usuário para uma página de confirmação visual.
-- 
+
+**Layout web - Checkout**
+![Coffee Delivery - Checkout Filled](https://github.com/MilenaRizzi/coffee-delivery/assets/116590085/c1a7345c-17eb-497b-98c5-1eabbcb55026)
+
 ## Página de Confirmação de pedido
+- Resumo do Pedido: Detalhes finais do pedido, incluindo confirmação do endereço, previsão de entrega e forma de pagamento selecionada.
+
+**Layout web - Success**
 ![Coffee Delivery - Success](https://github.com/MilenaRizzi/coffee-delivery/assets/116590085/0408b323-ba9d-420d-849a-f86865e93677)
 
-- Resumo do Pedido: Detalhes finais do pedido, incluindo confirmação do endereço, previsão de entrega e forma de pagamento selecionada.
 
 # Tecnologias Utilizadas
 ## Front end
