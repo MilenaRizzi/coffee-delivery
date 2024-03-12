@@ -18,8 +18,7 @@ A página inicial é a primeira tela que os usuários encontram ao acessar o apl
 - Botão de Adicionar ao Carrinho: Cada item no catálogo possui um botão de um carrinho que permite ao usuário adicionar o café desejado ao carrinho de compras.
 
 ## Página do Carrinho de Compras
-![Coffee Delivery - Checkout Filled](https://github.com/MilenaRizzi/coffee-delivery/assets/116590085/3ff8990e-c8ca-4614-8c6d-850a65cb7026)
-
+![Coffee Delivery - Home](https://github.com/MilenaRizzi/coffee-delivery/assets/116590085/12aedc21-da4a-4d61-aea3-887b931900b5)
 Após adicionar cafés ao carrinho, os usuários podem acessar a página do carrinho de compras para revisar e finalizar seus pedidos. Para isso, basta clicar no botão de carrinho presente no cabeçalho da página home. Na página do carrinho de compras, eles encontrarão:
 
 - Cadastro de endereço para entrega do pedido: usuário irá adicionar o seu endereço 
@@ -29,8 +28,7 @@ Após adicionar cafés ao carrinho, os usuários podem acessar a página do carr
 - Botão de Confirmação:  Um botão de confirmação que processa o pedido e direciona o usuário para uma página de confirmação visual.
 - 
 ## Página de Confirmação de pedido
-![Coffee Delivery - Success](https://github.com/MilenaRizzi/coffee-delivery/assets/116590085/f50d78b0-cd5c-40b3-aeb9-591cb733e48a)
-
+![Coffee Delivery - Success](https://github.com/MilenaRizzi/coffee-delivery/assets/116590085/ac0721b5-7e40-44e8-bed0-2378b0edd10f)
 - Resumo do Pedido: Detalhes finais do pedido, incluindo confirmação do endereço, previsão de entrega e forma de pagamento selecionada.
 
 # Tecnologias Utilizadas
